@@ -23,11 +23,15 @@ world.load_graph(room_graph)
 # Print an ASCII map
 world.print_rooms()
 
-player = Player(world.starting_room)
+#pass the starting room and size of world into the player class 
+player = Player(world.starting_room, len(world.rooms))
+player.run_maze()
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
-traversal_path = []
+
+# pss the BFS traversal path from player class traversal path to the adventure T-path 
+traversal_path = player.taversal_path.copy()
 
 
 
@@ -51,12 +55,12 @@ else:
 #######
 # UNCOMMENT TO WALK AROUND
 #######
-player.current_room.print_room_description(player)
-while True:
-    cmds = input("-> ").lower().split(" ")
-    if cmds[0] in ["n", "s", "e", "w"]:
-        player.travel(cmds[0], True)
-    elif cmds[0] == "q":
-        break
-    else:
-        print("I did not understand that command.")
+# player.current_room.print_room_description(player)
+# while True:
+#     cmds = input("-> ").lower().split(" ")
+#     if cmds[0] in ["n", "s", "e", "w"]:
+#         player.travel(cmds[0], True)
+#     elif cmds[0] == "q":
+#         break
+#     else:
+#         print("I did not understand that command.")
